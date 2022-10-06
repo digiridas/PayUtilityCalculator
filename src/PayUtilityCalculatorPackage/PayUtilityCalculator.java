@@ -15,7 +15,7 @@ public class PayUtilityCalculator {
 	/* Период, за который необходимо посчитать квартплату */ 
 	public static final String[] PERIOD_NAMES = {"1 месяц", "3 месяца", "6 месяцев", "1 год", "2 года", "3 года", "5 лет"};
 	/* Числовое представление периода */
-	public static final float[] PERIOD_VALUES = {0.0833f, 0.25f, 0.5f, 1f, 2f, 3f, 5f};
+	public static final float[] PERIOD_VALUES = {1f, 3f, 6f, 12f, 24f, 36f, 60f};
 	/** Сообщение об ошибке. Текст "Проверьте введенные данные!" красного цвета. */
 	public static final String ERROR_MESSAGE = "<html><span style='color:red'>Проверьте введенные данные!</span></html>"; 
 	
@@ -216,7 +216,7 @@ public class PayUtilityCalculator {
 		float resultWater = (endWater - startWater) * rateWater;
 		float resultSum = Math.round(resultElectric + resultGas + resultWater) * periodFloat;
 		// Результат форматируем и конвертируем в строку.
-		return String.format("%.2f+ \" руб.\"", resultSum);
+		return String.format("%.2f"+ " руб.", resultSum);
 	}
 
 	public JTextField getFieldForRateElectric() {
